@@ -1,5 +1,3 @@
-#requires -pssnapin VMware.VimAutomation.Core -version 4.1
- 
 function Get-VMLog{
 <#
 .SYNOPSIS
@@ -49,7 +47,7 @@ function Get-VMLog{
 ##### New Code Starts Here
 
 mkdir .\vmlog
-get-vm | | ?{$_.PowerState -eq "PoweredOff"} | get-vmlog -Path .\vmlog\
+get-vm | ?{$_.PowerState -eq "PoweredOff"} | get-vmlog -Path .\vmlog\
 
 $poweredoff = $null
 $poweredoff = @()

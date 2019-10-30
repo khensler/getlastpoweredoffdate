@@ -39,7 +39,7 @@ function Get-VMLog{
 		$ds = Get-Datastore -Name $dsName
 		$drvName = "MyDS" + (Get-Random)
 		New-PSDrive -Location $ds -Name $drvName -PSProvider VimDatastore -Root '\' | Out-Null
-		Copy-DatastoreItem -Item ($drvName + ":" + $vmPath + "*.log") -Destination ($Path + "\" + $obj.Name + "\") -Force:$true
+		Copy-DatastoreItem -Item ($drvName + ":" + $vmPath + "vmware.log") -Destination ($Path + "\" + $obj.Name + "\") -Force:$true
 		Remove-PSDrive -Name $drvName -Confirm:$false
 	}
 }
